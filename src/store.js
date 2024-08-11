@@ -19,7 +19,7 @@ export const setSettings = (input) => {
 };
 
 export const isOffline = readable(
-  !navigator.onLine || false,
+  (typeof navigator !== 'undefined' ? !navigator.onLine : false),
   (set) => {
     const handleStatus = event => {
       switch (event.type) {
